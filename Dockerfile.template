@@ -3,5 +3,6 @@ MAINTAINER Francesco Tonini <francescoantoniotonini@gmail.com>
 ENV REFRESHED_AT 2018-03-27
 
 RUN apk update \
-    && apk add --no-cache git python tesseract-ocr wget ca-certificates \
+    && apk add --no-cache --virtual .build-deps git make g++ wget ca-certificates \
+    && apk add --no-cache python tesseract-ocr \
     && cd /usr/share/tessdata && wget http://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
