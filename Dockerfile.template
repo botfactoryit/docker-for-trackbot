@@ -1,0 +1,7 @@
+FROM node:NODEJS_VERSION-alpine
+MAINTAINER Francesco Tonini <francescoantoniotonini@gmail.com>
+ENV REFRESHED_AT 2018-03-27
+
+RUN apk update \
+    && apk add --no-cache git python tesseract-ocr wget ca-certificates \
+    && cd /usr/share/tessdata && wget http://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
